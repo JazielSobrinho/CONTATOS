@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">CONTATOS</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <string name="lblNome">NOME</string>
+    <string name="lblFone">TELEFONE</string>
+    <string name="lblEmail">EM@IL</string>
+    <string name="lblEndereco">ENDERECO</string>
+    <string name="lblDatasEspeciais">DATAS_ESPECIAIS</string>
+    <string name="lblGrupos">GRUPO</string>
+
+</resources>

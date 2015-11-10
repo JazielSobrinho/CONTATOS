@@ -14,7 +14,8 @@
     <item
         android:id="@+id/action2"
         android:orderInCategory="100"
-        android:title="@string/lblMenuEditar"
+        android:title="@string/lblMenuExcluir"
+        android:visible="false"
         app:showAsAction="never" />
 
 

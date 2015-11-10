@@ -33,12 +33,15 @@ public class MainActivity extends AppCompatActivity {
 
         edtpesquisar = (EditText) findViewById(R.id.edtPesquisa);
         lstContatos = (ListView) findViewById(R.id.lstContatos);
+        btnAdicionar = (ImageButton) findViewById(R.id.btnAdicionar);
+
 
         try {
             dataBase = new DataBase(this);
             com = dataBase.getReadableDatabase();
+
             AlertDialog.Builder dlg = new AlertDialog.Builder(this);
-            dlg.setMessage("CONEXÃO COM BANCO DE DADOS OK");
+            dlg.setMessage("CONEXÃO COM\n BANCO DE DADOS \nOK");
             dlg.setNeutralButton("OK", null);
             dlg.show();
         } catch (android.database.SQLException ex) {
@@ -48,18 +51,28 @@ public class MainActivity extends AppCompatActivity {
             dlg.show();
 
         }
+
+
+        btnAdicionar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), Main2Activity.class);
+                startActivity(i);
+            }
+        });
+
     }
 
 
 
 
 
-     public void abrirNovaTela(View view){
+    /*public void abrirNovaTela(View view){
           Intent i = new Intent(this, Main2Activity.class);
          startActivity(i);
-      //abrrir nova tela
+      //abrrir nova tela metodo amador mas porem rapido
 
-    }
+    }*/
 
 
     @Override

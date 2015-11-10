@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
             dlg.setMessage("CONEXÃO COM\n BANCO DE DADOS \nOK");
             dlg.setNeutralButton("OK", null);
             dlg.show();
+
         } catch (android.database.SQLException ex) {
             AlertDialog.Builder dlg = new AlertDialog.Builder(this);
             dlg.setMessage("ERRO COM BANCO DE DADOS " + ex.getMessage());
@@ -71,8 +72,10 @@ public class MainActivity extends AppCompatActivity {
           Intent i = new Intent(this, Main2Activity.class);
          startActivity(i);
       //abrrir nova tela metodo amador mas porem rapido
-
-    }*/
+      Toast t = Toast.makeText(this,"MENSAGEN",Toast.LENGTH_LONG);
+            t.show();
+    }
+    */
 
 
     @Override

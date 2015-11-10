@@ -1,5 +1,6 @@
 package br.com.jaziel.contatos;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -36,7 +37,15 @@ public class MainActivity extends AppCompatActivity {
         try {
             dataBase = new DataBase(this);
             com = dataBase.getReadableDatabase();
+            AlertDialog.Builder dlg = new AlertDialog.Builder(this);
+            dlg.setMessage("CONEXÃO COM BANCO DE DADOS OK");
+            dlg.setNeutralButton("OK", null);
+            dlg.show();
         } catch (android.database.SQLException ex) {
+            AlertDialog.Builder dlg = new AlertDialog.Builder(this);
+            dlg.setMessage("ERRO COM BANCO DE DADOS " + ex.getMessage());
+            dlg.setNeutralButton("OK", null);
+            dlg.show();
 
         }
     }

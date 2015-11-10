@@ -1,16 +1,27 @@
 package br.com.jaziel.contatos;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
+
+
+    private EditText edtpesquisar;
+    private ImageButton btnAdicionar;
+    private ListView lstContatos;
+
+    private DataBase dataBase;
+    private SQLiteDatabase com;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +30,16 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        edtpesquisar = (EditText) findViewById(R.id.edtPesquisa);
+        lstContatos = (ListView) findViewById(R.id.lstContatos);
+
+        try {
+            dataBase = new DataBase(this);
+            com = dataBase.getReadableDatabase();
+        } catch (android.database.SQLException ex) {
+
+        }
+    }
 
 
 

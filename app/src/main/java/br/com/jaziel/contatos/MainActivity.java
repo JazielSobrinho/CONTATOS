@@ -42,10 +42,16 @@ public class MainActivity extends AppCompatActivity {
             dataBase = new DataBase(this);
             com = dataBase.getReadableDatabase();
 
-            AlertDialog.Builder dlg = new AlertDialog.Builder(this);
+            AlertDialog AlertDialog;
+            AlertDialog = new AlertDialog.Builder(this).create();
+            AlertDialog.setTitle("CONEXÃO SQLite");
+            AlertDialog.setMessage("CONECTANDO COM \n BANCO DE DADOS");
+            AlertDialog.show();
+
+          /*  AlertDialog.Builder dlg = new AlertDialog.Builder(this);
             dlg.setMessage("CONEXÃO COM\n BANCO DE DADOS \nOK");
             dlg.setNeutralButton("OK", null);
-            dlg.show();
+            dlg.show();*/
 
         } catch (android.database.SQLException ex) {
             AlertDialog.Builder dlg = new AlertDialog.Builder(this);

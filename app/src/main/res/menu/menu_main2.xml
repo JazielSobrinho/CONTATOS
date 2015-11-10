@@ -26,11 +26,5 @@
         android:title="@string/lblMenuDeletar"
         app:showAsAction="never" />
 
-    u
-    <item
-        android:id="@+id/action00"
-        android:orderInCategory="100"
-        android:title="@string/lblMenuDeletar"
-        app:showAsAction="never" />
 
 </menu>

@@ -5,14 +5,14 @@
 
     u
     <item
-        android:id="@+id/action1"
+        android:id="@+id/action1Menu"
         android:orderInCategory="100"
         android:title="@string/lblMenuSalvar"
         app:showAsAction="never" />
 
     u
     <item
-        android:id="@+id/action2"
+        android:id="@+id/action2Menu"
         android:orderInCategory="100"
         android:title="@string/lblMenuExcluir"
         android:visible="false"

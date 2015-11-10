@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    }
+
 
      public void abrirNovaTela(View view){
           Intent i = new Intent(this, Main2Activity.class);

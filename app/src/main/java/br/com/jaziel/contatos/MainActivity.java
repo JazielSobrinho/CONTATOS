@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
+import br.com.jaziel.contatos.database.DataBase;
+
 public class MainActivity extends AppCompatActivity {
 
 

@@ -1,4 +1,4 @@
-package br.com.jaziel.contatos;
+package br.com.jaziel.contatos.database;
 
 /**
  * Created by LAB56 on 10/11/2015.

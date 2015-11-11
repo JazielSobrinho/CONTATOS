@@ -48,10 +48,6 @@ public class MainActivity extends AppCompatActivity {
             AlertDialog.setMessage("CONECTANDO COM \n BANCO DE DADOS");
             AlertDialog.show();
 
-          /*  AlertDialog.Builder dlg = new AlertDialog.Builder(this);
-            dlg.setMessage("CONEXÃO COM\n BANCO DE DADOS \nOK");
-            dlg.setNeutralButton("OK", null);
-            dlg.show();*/
 
         } catch (android.database.SQLException ex) {
             AlertDialog.Builder dlg = new AlertDialog.Builder(this);

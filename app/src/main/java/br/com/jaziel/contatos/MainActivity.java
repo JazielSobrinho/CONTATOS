@@ -9,11 +9,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
 import br.com.jaziel.contatos.database.DataBase;
+import br.com.jaziel.contatos.dominio.RepositorioContato;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
 
     private DataBase dataBase;
     private SQLiteDatabase com;
+
+    private ArrayAdapter<String> adpContatos;
+    private RepositorioContato repositorioContato;
 
 
     @Override
@@ -39,8 +44,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         try {
+
             dataBase = new DataBase(this);
             com = dataBase.getReadableDatabase();
+
+            repositorioContato = new RepositorioContato(com);
+            adpContatos = repositorioContato.buscacontatos(this);
 
             AlertDialog AlertDialog;
             AlertDialog = new AlertDialog.Builder(this).create();
@@ -67,6 +76,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+
+
+
+
+
 
 
 

@@ -23,7 +23,7 @@ public class RepositorioContato {
 
         for (int i = 0; i < 10; i++) {
             ContentValues values = new ContentValues();
-            values.put("TELEFONE", "91115357");
+            values.put("TELEFONE", "9111 5357");
             com.insertOrThrow("CONTATO", null, values);
         }
 
@@ -38,6 +38,7 @@ public class RepositorioContato {
 
         if (cursor.getCount() > 0) {
 
+            cursor.moveToFirst();
             do {
 
                 String telefone = cursor.getString(1);

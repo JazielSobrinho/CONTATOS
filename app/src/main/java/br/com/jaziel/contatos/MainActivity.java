@@ -46,10 +46,13 @@ public class MainActivity extends AppCompatActivity {
         try {
 
             dataBase = new DataBase(this);
-            com = dataBase.getReadableDatabase();
+            // com = dataBase.getReadableDatabase(); somente para inserir
+            com = dataBase.getWritableDatabase(); //para update
 
             repositorioContato = new RepositorioContato(com);
             adpContatos = repositorioContato.buscacontatos(this);
+            repositorioContato.testeInserirContatos();
+            lstContatos.setAdapter(adpContatos);
 
             AlertDialog AlertDialog;
             AlertDialog = new AlertDialog.Builder(this).create();

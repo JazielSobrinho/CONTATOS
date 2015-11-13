@@ -1,5 +1,6 @@
 package br.com.jaziel.contatos.dominio;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -15,6 +16,17 @@ public class RepositorioContato {
     public RepositorioContato(SQLiteDatabase com) {
 
         this.com = com;
+
+    }
+
+    public void testeInserirContatos() {
+
+        for (int i = 0; i < 10; i++) {
+            ContentValues values = new ContentValues();
+            values.put("TELEFONE", "91115357");
+            com.insertOrThrow("CONTATO", null, values);
+        }
+
 
     }
 

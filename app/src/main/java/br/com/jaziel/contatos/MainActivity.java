@@ -26,9 +26,9 @@ public class MainActivity extends AppCompatActivity {
 
     private DataBase dataBase;
     private SQLiteDatabase com;
-
-    private ArrayAdapter<String> adpContatos;
     private RepositorioContato repositorioContato;
+    private ArrayAdapter<String> adpContatos;
+
 
 
     @Override
@@ -51,14 +51,11 @@ public class MainActivity extends AppCompatActivity {
 
             repositorioContato = new RepositorioContato(com);
             adpContatos = repositorioContato.buscacontatos(this);
-            repositorioContato.testeInserirContatos();
+
             lstContatos.setAdapter(adpContatos);
 
-            AlertDialog AlertDialog;
-            AlertDialog = new AlertDialog.Builder(this).create();
-            AlertDialog.setTitle("CONEXÃO SQLite");
-            AlertDialog.setMessage("CONECTANDO COM \n BANCO DE DADOS");
-            AlertDialog.show();
+
+
 
 
         } catch (android.database.SQLException ex) {

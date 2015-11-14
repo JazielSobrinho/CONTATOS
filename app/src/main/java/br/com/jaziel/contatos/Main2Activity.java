@@ -1,5 +1,7 @@
 package br.com.jaziel.contatos;
 
+import android.app.AlertDialog;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -8,6 +10,12 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+
+import java.util.Date;
+
+import br.com.jaziel.contatos.database.DataBase;
+import br.com.jaziel.contatos.dominio.RepositorioContato;
+import br.com.jaziel.contatos.dominio.entidades.Contato;
 
 public class Main2Activity extends AppCompatActivity {
 
@@ -28,6 +36,12 @@ public class Main2Activity extends AppCompatActivity {
     private ArrayAdapter<String> adpTipoFone;
     private ArrayAdapter<String> adpTipoEndereco;
     private ArrayAdapter<String> adpTipoDataEspeciais;
+
+    private DataBase dataBase;
+    private SQLiteDatabase com;
+    private RepositorioContato repositorioContato;
+    private Contato contato;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +96,23 @@ public class Main2Activity extends AppCompatActivity {
         adpTipoDataEspeciais.add("ANIVERSARIO");
         adpTipoDataEspeciais.add("OUTROS");
 
+        try {
+
+            dataBase = new DataBase(this);
+            // com = dataBase.getReadableDatabase(); somente para inserir
+            com = dataBase.getWritableDatabase(); //para update
+
+            repositorioContato = new RepositorioContato(com);
+
+
+        } catch (android.database.SQLException ex) {
+            AlertDialog.Builder dlg = new AlertDialog.Builder(this);
+            dlg.setMessage("ERRO COM BANCO DE DADOS " + ex.getMessage());
+            dlg.setNeutralButton("OK", null);
+            dlg.show();
+
+        }
+
 
 
 
@@ -117,6 +148,22 @@ public class Main2Activity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
 
+
+    }
+    private  void inserir(){
+
+
+        contato = new Contato();
+        contato.setNome(edtNome.getText().toString());
+        contato.setTelefone(edtFone.getText().toString());
+        contato.setTipoEmail(edtEmail.getText().toString());
+        contato.setEndereco(edtEnderco.getText().toString());
+
+        Date date = new Date();
+
+        contato.setDataEspeciais(date);
+
+        contato.setGrupos(edtGrupos.getText().toString());
 
     }
 

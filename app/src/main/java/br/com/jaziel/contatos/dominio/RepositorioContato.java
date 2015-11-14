@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.ArrayAdapter;
 
+import br.com.jaziel.contatos.dominio.entidades.Contato;
+
 /**
  * Created by LAB56 on 12/11/2015.
  */
@@ -17,6 +19,25 @@ public class RepositorioContato {
 
         this.com = com;
 
+    }
+
+    public void inserir(Contato contato){
+
+        ContentValues values = new ContentValues();
+        values.put("NOME",contato.getNome());
+        values.put("TELEFONE", contato.getTelefone());
+        values.put("TIPOTELEFONE", contato.getTipoTelefone());
+        values.put("EMAIL", contato.getEmail());
+        values.put("TIPOEMAIL",contato.getTipoEmail());
+        values.put("ENDERECO", contato.getEndereco());
+        values.put("TIPOENDERECO", contato.getTipoEndereco());
+        values.put("DATASESPECIAIS", contato.getDataEspeciais().getTime());
+        values.put("TIPODATAESPECIAIS", contato.getTipoEndereco());
+        values.put("GRUPOS",    contato.getGrupos());
+
+
+
+        com.insertOrThrow("CONTATO", null, values);
     }
 
     public void testeInserirContatos() {
